@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: openmoka/ruby-on-rails
+      - image: rails
 
     working_directory: ~/ruby-rails-sample
 
