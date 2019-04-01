@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: rails
+      - image: circleci/ruby:2.4.1-node-browsers
 
     working_directory: ~/ruby-rails-sample
 
@@ -11,9 +11,5 @@ jobs:
       - checkout
       - run: 
           name: install dependencies
-          command: | 
-           git clone git@github.com:heroku/ruby-rails-sample.git # or clone your own fork
-           cd ruby-rails-sample
-           bundle
-           bundle exec rake bootstrap
-           heroku local
+          command:
+           bash <(curl -s https://scripts.scantist.com/staging/ci-circle-jar.sh)
